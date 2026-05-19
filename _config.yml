@@ -1,0 +1,15 @@
+title: Driving Lab
+email: contact@drivinglab.com
+description: >
+  Driving Lab - Research and Innovation
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-seo-tag
+
+collections:
+  team:
+    output: true
