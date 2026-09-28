@@ -1,0 +1,86 @@
+.project-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18.75rem, 0.75fr);
+  gap: clamp(3.5rem, 10vw, 9.375rem);
+  align-items: start;
+}
+
+.project-overview h2 {
+  margin-top: 1.125rem;
+}
+
+.project-lead {
+  color: var(--jyu-blue);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.45;
+}
+
+.project-overview .btn {
+  margin-top: 1.125rem;
+}
+
+.project-meta {
+  padding: clamp(1.75rem, 4vw, 2.625rem);
+  border: 0.0625rem solid rgba(0, 41, 87, 0.12);
+  border-radius: var(--radius);
+  background: var(--jyu-grey);
+  box-shadow: 0 0.875rem 2.125rem rgba(0, 41, 87, 0.06);
+}
+
+.project-goal {
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-goal > span {
+  margin-bottom: auto;
+  color: var(--jyu-coral);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.project-goal p {
+  margin-bottom: 0;
+}
+
+.project-highlight-inner {
+  display: grid;
+  grid-template-columns: minmax(11.25rem, 0.45fr) minmax(0, 1.2fr);
+  gap: clamp(3rem, 9vw, 8.125rem);
+  align-items: center;
+}
+
+.award-mark {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--jyu-blue);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+}
+
+.project-highlight h2 {
+  margin-top: 1.125rem;
+}
+
+.project-highlight p {
+  max-width: 43.125rem;
+  font-size: 1.06rem;
+}
+
+@media (max-width: 51.25rem) {
+  .project-overview,
+  .project-highlight-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .award-mark {
+    width: min(14.375rem, 60vw);
+  }
+}
