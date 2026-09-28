@@ -1,0 +1,109 @@
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: clamp(1.25rem, 3vw, 2.75rem) clamp(1rem, 3vw, 2.75rem) 0;
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  border-radius: var(--radius);
+  background: var(--jyu-blue);
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 48%, rgba(0, 18, 42, 0.28));
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-text {
+  width: min(68%, 53.125rem);
+}
+
+.page-hero .eyebrow,
+.page-hero h1,
+.page-hero-subtitle {
+  color: #ffffff;
+}
+
+.page-hero h1 {
+  max-width: 51.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.375rem;
+  font-size: clamp(2.7rem, 5.2vw, 5.1rem);
+}
+
+.page-hero-subtitle {
+  max-width: 45rem;
+  margin: 0;
+  font-size: clamp(1.08rem, 1.7vw, 1.32rem);
+  line-height: 1.55;
+}
+
+.page-hero-art {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: clamp(1.5rem, 5vw, 5.5rem);
+  bottom: 0;
+  width: min(39vw, 32.5rem);
+  background-image: url("../../assets/road-perspective.svg");
+  background-repeat: no-repeat;
+  background-position: center calc(100% + 4rem);
+  background-size: 142% auto;
+  filter: drop-shadow(0 1.75rem 1.875rem rgba(0, 12, 31, 0.2));
+}
+
+.marker-label {
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  right: 4%;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.marker-label::before {
+  content: "";
+  width: 1.875rem;
+  height: 0.1875rem;
+  background: var(--jyu-coral);
+}
+
+@media (max-width: 47.5rem) {
+  .page-hero {
+    margin-inline: 0.75rem;
+  }
+
+  .page-hero-inner {
+    min-height: 26.875rem;
+  }
+
+  .page-hero-art {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15.3125rem;
+    background-position: center calc(100% + 3.125rem);
+    background-size: min(30.625rem, 115%) auto;
+  }
+
+  .marker-label {
+    top: 8%;
+    right: 8%;
+  }
+
+  .page-hero-text {
+    width: 100%;
+  }
+}
