@@ -1,0 +1,131 @@
+# ==========================================================================
+# Drive-in Lab — site configuration
+# Edit this file to change site-wide text, navigation, and the whole
+# visual theme (font + colors) without touching any template or CSS file.
+# ==========================================================================
+
+title: "Drive-in Lab"
+tagline: "Driver Inattention & In-Car Interaction Research"
+description: >-
+  Drive-in Lab is a research group at the University of Jyväskylä studying
+  driver inattention, distraction, and in-car human-machine interaction,
+  using a purpose-built full-scale driving simulation facility.
+
+# Organisation / institute
+organisation: "University of Jyväskylä"
+faculty: "Faculty of Information Technology"
+url: "https://drive-in-lab.github.io"     # change to your final GitHub Pages URL
+baseurl: ""                                # "/repo-name" if this is a project page, "" if it is a user/org page
+email: "tuomo.j.kujala@jyu.fi"             # update to the lab's current contact address
+address: "Faculty of Information Technology, University of Jyväskylä, PO Box 35, FI-40014, Finland"
+
+# Social / external profile links shown in the footer (leave blank to hide)
+social:
+  twitter: ""
+  linkedin: ""
+  github: ""
+  youtube: ""
+
+# --------------------------------------------------------------------------
+# THEME — change the whole site's look from here. No code edits required.
+# --------------------------------------------------------------------------
+theme:
+  font:
+    name: "Ubuntu"
+    weights: "300;400;500;700"
+    google_font_url: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+    fallback: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+  colors:
+    primary: "#0B1F3A"        # deep ink navy — header, footer, headings
+    primary-dark: "#07152A"   # hover/active state of primary
+    accent: "#E8A33D"         # highway amber — links, buttons, highlights
+    accent-dark: "#C3811E"    # hover/active state of accent
+    text: "#1C2530"           # body text
+    text-light: "#5A6675"     # secondary / muted text
+    background: "#FFFFFF"     # page background
+    surface: "#F4F6F8"        # card / section background
+    border: "#E1E5EA"         # hairlines, dividers
+    success: "#2E7D5B"
+    danger: "#B3261E"
+  radius: "4px"                # 0px = fully square/classic, keep small for a sober look
+
+# --------------------------------------------------------------------------
+# Primary navigation
+# --------------------------------------------------------------------------
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+  - title: "People"
+    url: "/people/"
+  - title: "Publications"
+    url: "/publications/"
+  - title: "News"
+    url: "/news/"
+  - title: "Contact"
+    url: "/contact/"
+
+# --------------------------------------------------------------------------
+# Collections
+# --------------------------------------------------------------------------
+collections:
+  people:
+    output: true
+    permalink: /people/:path/
+  news:
+    output: true
+    permalink: /news/:path/
+  publications:
+    output: true
+    permalink: /publications/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: "person"
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: "news-item"
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+# --------------------------------------------------------------------------
+# Build settings
+# --------------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+sass:
+  style: compressed
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  collections:
+    news:
+      path: /news/feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md
+  - node_modules
+  - vendor
+  - .claude
+  - .github

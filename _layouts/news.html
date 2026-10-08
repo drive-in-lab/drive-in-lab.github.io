@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container" data-search-root>
+    <header class="section-header">
+      <span class="eyebrow">Latest</span>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+    </header>
+
+    {{ content }}
+
+    {% assign news_items = site.news | sort: "date" | reverse %}
+    {% assign categories = news_items | map: "category" | compact | uniq | sort %}
+
+    <div class="filter-bar">
+      <input class="search-input" type="search" data-search-input
+             placeholder="Search news&hellip;" aria-label="Search news">
+      {% if categories.size > 1 %}
+      <select class="filter-select" data-filter-select aria-label="Filter by category">
+        <option value="">All categories</option>
+        {% for cat in categories %}{% if cat %}<option value="{{ cat }}">{{ cat }}</option>{% endif %}{% endfor %}
+      </select>
+      {% endif %}
+    </div>
+
+    <div class="grid" data-search-list>
+      {% for item in news_items %}
+      {% assign search_text = item.title | append: " " | append: item.summary | append: " " | append: item.category | downcase %}
+      <a class="card news-item card-link" href="{{ item.url | relative_url }}"
+         data-searchable data-search="{{ search_text }}" data-category="{{ item.category }}">
+        <span class="date">{{ item.date | date: "%-d %B %Y" }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="no-results" data-no-results hidden>No news items match your search.</p>
+  </div>
+</article>

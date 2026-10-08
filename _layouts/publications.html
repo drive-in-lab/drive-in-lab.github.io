@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container" data-search-root>
+    <header class="section-header">
+      <span class="eyebrow">Research output</span>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+    </header>
+
+    {{ content }}
+
+    {% assign pubs = site.publications | sort: "year" | reverse %}
+    {% assign years = pubs | map: "year" | compact | uniq | sort | reverse %}
+
+    <div class="filter-bar">
+      <input class="search-input" type="search" data-search-input
+             placeholder="Search by title, author or keyword&hellip;" aria-label="Search publications">
+      {% if years.size > 1 %}
+      <select class="filter-select" data-filter-select aria-label="Filter by year">
+        <option value="">All years</option>
+        {% for y in years %}<option value="{{ y }}">{{ y }}</option>{% endfor %}
+      </select>
+      {% endif %}
+    </div>
+
+    <ul class="pub-list" data-search-list>
+      {% for pub in pubs %}
+      {% assign authors_text = pub.authors | join: " " %}
+      {% assign tags_text = pub.tags | join: " " %}
+      {% assign search_text = pub.title | append: " " | append: authors_text | append: " " | append: pub.venue | append: " " | append: tags_text | downcase %}
+      <li class="pub-item" data-searchable data-search="{{ search_text }}" data-category="{{ pub.year }}">
+        <span class="eyebrow">{{ pub.year }} · {{ pub.type }}</span>
+        <h3><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></h3>
+        <p class="meta">{{ pub.authors | join: ", " }}{% if pub.venue %} — <em>{{ pub.venue }}</em>{% endif %}</p>
+        <p class="pub-links">
+          {% if pub.pdf %}<a href="{{ pub.pdf | relative_url }}">PDF</a>{% endif %}
+          {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">DOI</a>{% endif %}
+          {% if pub.link %}<a href="{{ pub.link }}">External link</a>{% endif %}
+        </p>
+        {% if pub.tags %}
+        <div class="tags">
+          {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="no-results" data-no-results hidden>No publications match your search.</p>
+  </div>
+</article>

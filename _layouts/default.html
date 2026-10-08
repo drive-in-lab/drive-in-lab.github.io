@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include header.html %}
+  <main id="main-content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {% if page.layout == "people" or page.layout == "news" or page.layout == "publications" %}
+  <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+  {% endif %}
+</body>
+</html>

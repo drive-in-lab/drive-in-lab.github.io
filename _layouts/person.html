@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container">
+    <p><a href="{{ '/people/' | relative_url }}">&larr; All people</a></p>
+    <div class="person-header">
+      <img src="{{ page.photo | default: '/assets/images/people/placeholder.svg' | relative_url }}"
+           alt="Photo of {{ page.name }}" width="440" height="330">
+      <div>
+        <span class="eyebrow">{{ page.role }}</span>
+        <h1 class="mt-0">{{ page.name }}</h1>
+        {% if page.title %}<p class="meta">{{ page.title }}</p>{% endif %}
+
+        <ul class="profile-links">
+          {% if page.email %}<li><a href="mailto:{{ page.email }}">{{ page.email }}</a></li>{% endif %}
+          {% if page.university_profile %}<li><a href="{{ page.university_profile }}">University profile</a></li>{% endif %}
+          {% if page.google_scholar %}<li><a href="{{ page.google_scholar }}">Google Scholar</a></li>{% endif %}
+          {% if page.researchgate %}<li><a href="{{ page.researchgate }}">ResearchGate</a></li>{% endif %}
+          {% if page.orcid %}<li><a href="{{ page.orcid }}">ORCID</a></li>{% endif %}
+          {% if page.linkedin %}<li><a href="{{ page.linkedin }}">LinkedIn</a></li>{% endif %}
+          {% if page.website %}<li><a href="{{ page.website }}">Personal website</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-content" style="margin-top: var(--space-4); max-width: 75ch;">
+      {{ content }}
+    </div>
+
+    {% if page.research_interests %}
+    <div style="margin-top: var(--space-3);">
+      <h3>Research interests</h3>
+      <div class="tags">
+        {% for topic in page.research_interests %}<span class="tag">{{ topic }}</span>{% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ page.name }}",
+  "jobTitle": "{{ page.role }}",
+  "email": "{{ page.email }}",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "{{ site.organisation }}"
+  }
+  {% assign sameas_raw = page.google_scholar | append: "||" | append: page.researchgate | append: "||" | append: page.orcid | append: "||" | append: page.linkedin | append: "||" | append: page.website %}
+  {% assign sameas_list = sameas_raw | split: "||" | where_exp: "item", "item != ''" %}
+  {% if sameas_list.size > 0 %},
+  "sameAs": {{ sameas_list | jsonify }}
+  {% endif %}
+}
+</script>

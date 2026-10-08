@@ -1,0 +1,84 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow" style="color:#fff;">{{ site.organisation }} · {{ site.faculty }}</span>
+    <h1>{{ page.hero_title | default: site.tagline }}</h1>
+    <p class="lead">{{ page.hero_lead | default: site.description }}</p>
+    <div class="actions">
+      <a class="btn" href="{{ '/about/' | relative_url }}">About the lab</a>
+      <a class="btn btn-outline" href="{{ '/publications/' | relative_url }}">Browse publications</a>
+    </div>
+  </div>
+</section>
+
+{% if page.stats %}
+<section class="section">
+  <div class="container">
+    <div class="stats">
+      {% for stat in page.stats %}
+      <div class="stat">
+        <strong>{{ stat.value }}</strong>
+        <span>{{ stat.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Research focus</span>
+      <h2>Understanding driver inattention</h2>
+      <p>{{ content }}</p>
+    </div>
+  </div>
+</section>
+
+{% assign people = site.people | sort: "order" %}
+{% if people.size > 0 %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Team</span>
+      <h2>People</h2>
+      <p>Meet the researchers behind the lab.</p>
+    </div>
+    <div class="grid">
+      {% for person in people limit:4 %}
+      <a class="card person-card card-link" href="{{ person.url | relative_url }}">
+        <img class="photo" src="{{ person.photo | default: '/assets/images/people/placeholder.svg' | relative_url }}" alt="Photo of {{ person.name }}" loading="lazy">
+        <h3>{{ person.name }}</h3>
+        <span class="role">{{ person.role }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <p><a href="{{ '/people/' | relative_url }}">View all people &rarr;</a></p>
+  </div>
+</section>
+{% endif %}
+
+{% assign news_items = site.news | sort: "date" | reverse %}
+{% if news_items.size > 0 %}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Latest</span>
+      <h2>News</h2>
+    </div>
+    <div class="grid">
+      {% for item in news_items limit:3 %}
+      <a class="card card-link" href="{{ item.url | relative_url }}">
+        <span class="date">{{ item.date | date: "%-d %B %Y" }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p><a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
+  </div>
+</section>
+{% endif %}

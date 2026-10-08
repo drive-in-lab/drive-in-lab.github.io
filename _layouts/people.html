@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container" data-search-root>
+    <header class="section-header">
+      <span class="eyebrow">Team</span>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+    </header>
+
+    {{ content }}
+
+    <div class="filter-bar">
+      <input class="search-input" type="search" data-search-input
+             placeholder="Search people by name, role or research topic&hellip;"
+             aria-label="Search people">
+    </div>
+
+    {% assign people = site.people | sort: "order" %}
+    <div class="grid" data-search-list>
+      {% for person in people %}
+      {% assign interests_text = person.research_interests | join: " " %}
+      {% assign search_text = person.name | append: " " | append: person.role | append: " " | append: interests_text | downcase %}
+      <a class="card person-card card-link" href="{{ person.url | relative_url }}"
+         data-searchable data-search="{{ search_text }}">
+        <img class="photo" src="{{ person.photo | default: '/assets/images/people/placeholder.svg' | relative_url }}" alt="Photo of {{ person.name }}" loading="lazy">
+        <h3>{{ person.name }}</h3>
+        <span class="role">{{ person.role }}</span>
+        {% if person.research_interests %}
+        <div class="tags">
+          {% for topic in person.research_interests limit:3 %}<span class="tag">{{ topic }}</span>{% endfor %}
+        </div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+    <p class="no-results" data-no-results hidden>No one matches your search.</p>
+  </div>
+</article>

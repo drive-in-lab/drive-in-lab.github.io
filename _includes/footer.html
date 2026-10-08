@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>{{ site.title }}</h4>
+      <p>{{ site.tagline }}</p>
+      <p>{{ site.organisation }}<br>{{ site.faculty }}</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p>{{ site.address }}</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <p>
+        {% for item in site.nav %}
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% unless forloop.last %}<br>{% endunless %}
+        {% endfor %}
+      </p>
+    </div>
+
+    {% if site.social.twitter != "" or site.social.linkedin != "" or site.social.github != "" or site.social.youtube != "" %}
+    <div>
+      <h4>Follow</h4>
+      <p>
+        {% if site.social.twitter != "" %}<a href="{{ site.social.twitter }}">Twitter / X</a><br>{% endif %}
+        {% if site.social.linkedin != "" %}<a href="{{ site.social.linkedin }}">LinkedIn</a><br>{% endif %}
+        {% if site.social.github != "" %}<a href="{{ site.social.github }}">GitHub</a><br>{% endif %}
+        {% if site.social.youtube != "" %}<a href="{{ site.social.youtube }}">YouTube</a>{% endif %}
+      </p>
+    </div>
+    {% endif %}
+
+    <div class="bottom">
+      <span>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}, {{ site.organisation }}.</span>
+      <span><a href="{{ '/news/feed.xml' | relative_url }}">News RSS feed</a></span>
+    </div>
+  </div>
+</footer>
