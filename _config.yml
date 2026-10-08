@@ -96,10 +96,11 @@ defaults:
       type: "publications"
     values:
       layout: "publication"
-  - scope:
-      path: ""
-    values:
-      layout: "page"
+# Note: every top-level page (index.md, about.md, people.md, ...) sets its
+# own `layout:` explicitly in its front matter. Do NOT add a catch-all
+# default here with no `type:` — it would also match non-page files that
+# merely have a `---\n---` front-matter marker (assets/css/main.css,
+# robots.txt), wrapping them in a full HTML layout and breaking them.
 
 # --------------------------------------------------------------------------
 # Build settings
