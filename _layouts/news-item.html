@@ -3,11 +3,12 @@ layout: default
 ---
 <article class="section">
   <div class="container" style="max-width: 80ch;">
-    <p><a href="{{ '/news/' | relative_url }}">&larr; All news</a></p>
+    <a class="back-link" href="{{ '/news/' | relative_url }}"><span aria-hidden="true">&larr;</span> All news</a>
     <span class="eyebrow">{{ page.date | date: "%-d %B %Y" }}{% if page.category %} · {{ page.category }}{% endif %}</span>
     <h1>{{ page.title }}</h1>
     {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="" style="border-radius: var(--radius); border: 1px solid var(--color-border); margin-bottom: var(--space-3);">
+    <img src="{{ page.image | relative_url }}" alt=""
+         style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--color-border); box-shadow: var(--shadow); margin: var(--space-3) 0;">
     {% endif %}
     <div class="page-content">
       {{ content }}

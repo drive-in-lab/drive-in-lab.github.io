@@ -37,17 +37,21 @@ theme:
     fallback: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
   colors:
     primary: "#0B1F3A"        # deep ink navy — header, footer, headings
-    primary-dark: "#07152A"   # hover/active state of primary
+    primary-dark: "#071526"   # darker navy — gradients, hover state of primary
+    primary-soft: "#13294A"   # lighter navy step — hero gradients
     accent: "#E8A33D"         # highway amber — links, buttons, highlights
     accent-dark: "#C3811E"    # hover/active state of accent
     text: "#1C2530"           # body text
     text-light: "#5A6675"     # secondary / muted text
-    background: "#FFFFFF"     # page background
-    surface: "#F4F6F8"        # card / section background
+    background: "#F7F8FA"     # page background (very light neutral)
+    surface: "#FFFFFF"        # card background
+    tint: "#EEF1F5"           # pale neutral panel (icon chips, hover backgrounds)
     border: "#E1E5EA"         # hairlines, dividers
+    border-strong: "#CBD3DC"  # slightly stronger border (hover, inputs)
     success: "#2E7D5B"
     danger: "#B3261E"
-  radius: "4px"                # 0px = fully square/classic, keep small for a sober look
+  radius: "16px"                # card / panel corner radius
+  radius-sm: "10px"             # small element corner radius (inputs, chips)
 
 # --------------------------------------------------------------------------
 # Primary navigation

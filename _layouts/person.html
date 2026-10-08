@@ -3,10 +3,12 @@ layout: default
 ---
 <article class="section">
   <div class="container">
-    <p><a href="{{ '/people/' | relative_url }}">&larr; All people</a></p>
+    <a class="back-link" href="{{ '/people/' | relative_url }}"><span aria-hidden="true">&larr;</span> All people</a>
     <div class="person-header">
-      <img src="{{ page.photo | default: '/assets/images/people/placeholder.svg' | relative_url }}"
-           alt="Photo of {{ page.name }}" width="440" height="330">
+      <div class="photo-frame">
+        <img src="{{ page.photo | default: '/assets/images/people/placeholder.svg' | relative_url }}"
+             alt="Photo of {{ page.name }}" width="480" height="360">
+      </div>
       <div>
         <span class="eyebrow">{{ page.role }}</span>
         <h1 class="mt-0">{{ page.name }}</h1>
