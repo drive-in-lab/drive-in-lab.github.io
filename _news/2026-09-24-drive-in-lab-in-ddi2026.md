@@ -3,7 +3,7 @@ title: "Drive in lab will be in DDI 2026 in Gothenburg"
 date: 2026-10-13
 category: "Announcement"
 summary: "Our Drive in Lab will be presented in the DDI 2026 conference in Gothenburg, Sweden."
-image: ""
+image: "https://ddi2026.org/wp-content/uploads/2025/03/DDI-2026.jpg"
 ---
 
 We are excited to announce that our Drive in Lab will be presented at the **DDI 2026** conference in Gothenburg, Sweden. The conference will take place from **Oct 19, 22, 2026**, and will bring together researchers and practitioners from around the world to discuss the latest developments in driving simulation and driver behavior research.
