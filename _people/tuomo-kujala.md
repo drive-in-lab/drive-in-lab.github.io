@@ -24,5 +24,3 @@ including how in-car information and entertainment systems affect driver
 attention and crash risk. He leads the group's work with the Drive-in
 Laboratory, a full-scale driving simulation facility built in 2024 for
 measuring the distraction potential of in-car systems.
-
-*(Replace this paragraph with an up-to-date biography.)*

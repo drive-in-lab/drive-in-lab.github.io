@@ -15,5 +15,3 @@ research_interests: []
 
 Juuso-Petteri Partanen is a Research Assistant at Drive-in Lab, Faculty of
 Information Technology, University of Jyväskylä.
-
-*(Replace this paragraph with an up-to-date biography.)*

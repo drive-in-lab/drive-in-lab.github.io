@@ -1,6 +1,6 @@
 ---
 name: "Hesam Mohseni"
-role: "Researcher"
+role: "Postdoctoral Researcher"
 title: "Faculty of Information Technology, University of Jyväskylä"
 order: 3
 photo: /assets/images/people/hesammohseni.jpg
@@ -14,7 +14,5 @@ research_interests:
   - "Driver inattention"
 ---
 
-Hesam Mohseni is a Researcher at Drive-in Lab, Faculty of Information
+Hesam Mohseni is a Postdoctoral Researcher at Drive-in Lab, Faculty of Information
 Technology, University of Jyväskylä.
-
-*(Replace this paragraph with an up-to-date biography.)*
